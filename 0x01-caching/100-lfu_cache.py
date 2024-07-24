@@ -38,7 +38,8 @@ class LFUCache(BaseCaching):
             item (str): The value for the cache entry.
         """
         if key is not None and item is not None:
-            if len(self.keys) >= BaseCaching.MAX_ITEMS and key not in self.keys:
+            if (len(self.keys) >= BaseCaching.MAX_ITEMS and
+                    key not in self.keys):
                 discard = self.findLFU()
                 self.keys.remove(discard)
                 del self.cache_data[discard]
@@ -82,7 +83,9 @@ class LFUCache(BaseCaching):
             str: The key of the least frequently used item.
         """
         least_frequency = min(self.uses.values())
-        least_frequent_keys = [k for k, v in self.uses.items() if v == least_frequency]
+        least_frequent_keys = [
+            k for k, v in self.uses.items() if v == least_frequency
+        ]
         for key in self.keys:
             if key in least_frequent_keys:
                 return key

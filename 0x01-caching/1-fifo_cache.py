@@ -52,11 +52,13 @@ class FIFOCache(BaseCaching):
         """
         Return value stored in `key` key of cache.
         If key is None or does not exist in cache, return None.
-        
+
         Args:
             key (str): The key for the cache entry.
 
         Returns:
-            str: The value associated with the key, or None if the key is not found.
+            str: The value associated with the key, or None
+            if the key is not found.
+
         """
         return self.cache_data.get(key, None) if key is not None else None

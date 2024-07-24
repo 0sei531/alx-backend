@@ -31,7 +31,7 @@ class LRUCache(BaseCaching):
         Add key/value pair to cache data.
         If cache is at max capacity (specified by BaseCaching.MAX_ITEMS),
         discard least recently used entry in cache to accommodate new entry.
-        
+
         Args:
             key (str): The key for the cache entry.
             item (str): The value for the cache entry.
@@ -51,10 +51,10 @@ class LRUCache(BaseCaching):
         """
         Return value stored in `key` key of cache.
         If key is None or does not exist in cache, return None.
-        
+
         Args:
             key (str): The key for the cache entry.
-        
+
         Returns:
             str: The value associated with the key, or None if the key
             is not found.

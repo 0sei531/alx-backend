@@ -64,7 +64,8 @@ class LFUCache(BaseCaching):
             key (str): The key for the cache entry.
 
         Returns:
-            str: The value associated with the key, or None if the key is not found.
+            str: The value associated with the key, or None
+            if the key is not found.
         """
         if key is not None and key in self.cache_data:
             self.keys.remove(key)

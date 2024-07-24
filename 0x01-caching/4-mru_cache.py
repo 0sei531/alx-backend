@@ -51,7 +51,7 @@ class MRUCache(BaseCaching):
         """
         Return value stored in `key` key of cache.
         If key is None or does not exist in cache, return None.
-        
+
         Args:
             key (str): The key for the cache entry.
 

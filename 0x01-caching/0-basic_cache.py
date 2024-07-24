@@ -38,6 +38,8 @@ class BasicCache(BaseCaching):
             key (str): The key for the cache entry.
 
         Returns:
-            str: The value associated with the key, or None if the key is not found.
+            str: The value associated with the key, or None if
+            the key is not found.
+
         """
         return self.cache_data.get(key, None) if key is not None else None

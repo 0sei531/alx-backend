@@ -15,6 +15,7 @@ class Config(object):
     BABEL_DEFAULT_LOCALE = 'en'
     BABEL_DEFAULT_TIMEZONE = 'UTC'
 
+
 # Set the above class object as the configuration for the app
 app.config.from_object(Config)
 
@@ -31,6 +32,7 @@ def index() -> str:
 def get_locale() -> str:
     """Determine the best match for supported languages based on the request"""
     return request.accept_languages.best_match(app.config['LANGUAGES'])
+
 
 if __name__ == "__main__":
     host = getenv("API_HOST", "0.0.0.0")

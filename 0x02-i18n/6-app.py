@@ -23,8 +23,10 @@ class Config(object):
     BABEL_DEFAULT_LOCALE = 'en'
     BABEL_DEFAULT_TIMEZONE = 'UTC'
 
+
 # Set the configuration for the app
 app.config.from_object(Config)
+
 
 @app.route('/', methods=['GET'], strict_slashes=False)
 def index() -> str:

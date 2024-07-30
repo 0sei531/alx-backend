@@ -22,5 +22,6 @@ def index():
     """
     return render_template('0-index.html')
 
+
 if __name__ == "__main__":
     app.run(host=app.config['API_HOST'], port=app.config['API_PORT'])

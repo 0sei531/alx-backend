@@ -44,6 +44,7 @@ def get_locale() -> str:
         return locale
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
+
 def get_user() -> Union[dict, None]:
     """Return user dictionary if ID can be found"""
     user_id = request.args.get('login_as')

@@ -16,6 +16,7 @@ users = {
 app = Flask(__name__)
 babel = Babel(app)
 
+
 class Config(object):
     """Configuration for Babel"""
     LANGUAGES = ['en', 'fr']
@@ -32,6 +33,7 @@ def index() -> str:
     """
     return render_template('6-index.html')
 
+
 @babel.localeselector
 def get_locale() -> str:
     """Determine the best match for supported languages based on locale"""
@@ -41,6 +43,7 @@ def get_locale() -> str:
     if g.user and g.user.get('locale') in app.config['LANGUAGES']:
         return g.user.get('locale')
     return request.accept_languages.best_match(app.config['LANGUAGES'])
+
 
 def get_user() -> Union[dict, None]:
     """Return user dictionary if ID can be found"""
@@ -53,10 +56,12 @@ def get_user() -> Union[dict, None]:
             return None
     return None
 
+
 @app.before_request
 def before_request() -> None:
     """Find user and set as global on flask.g.user"""
     g.user = get_user()
+
 
 if __name__ == "__main__":
     host = getenv("API_HOST", "0.0.0.0")

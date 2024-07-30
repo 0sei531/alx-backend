@@ -16,14 +16,17 @@ users = {
 app = Flask(__name__)
 babel = Babel(app)
 
+
 class Config(object):
     """Configuration class for Babel"""
     LANGUAGES = ['en', 'fr']
     BABEL_DEFAULT_LOCALE = 'en'
     BABEL_DEFAULT_TIMEZONE = 'UTC'
 
+
 # Set the above class object as the configuration for the app
 app.config.from_object(Config)
+
 
 @app.route('/', methods=['GET'], strict_slashes=False)
 def index() -> str:
@@ -31,6 +34,7 @@ def index() -> str:
     Return: 5-index.html
     """
     return render_template('5-index.html')
+
 
 @babel.localeselector
 def get_locale() -> str:
@@ -48,10 +52,12 @@ def get_user() -> Union[dict, None]:
         return user
     return None
 
+
 @app.before_request
 def before_request() -> None:
     """Find user and set as global on flask.g.user"""
     g.user = get_user()
+
 
 if __name__ == "__main__":
     host = getenv("API_HOST", "0.0.0.0")

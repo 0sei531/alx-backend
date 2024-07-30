@@ -14,6 +14,7 @@ class Config:
 app = Flask(__name__, static_url_path='')
 app.config.from_object(Config)
 
+
 @app.route('/', methods=['GET'], strict_slashes=False)
 def index():
     """ GET /

@@ -8,6 +8,7 @@ from os import getenv
 app = Flask(__name__)
 babel = Babel(app)
 
+
 class Config(object):
     """Configuration class for Babel"""
     LANGUAGES = ['en', 'fr']
@@ -17,12 +18,14 @@ class Config(object):
 # Set the above class object as the configuration for the app
 app.config.from_object(Config)
 
+
 @app.route('/', methods=['GET'], strict_slashes=False)
 def index() -> str:
     """GET /
     Return: 2-index.html
     """
     return render_template('2-index.html')
+
 
 @babel.localeselector
 def get_locale() -> str:
